@@ -1,17 +1,17 @@
-package kodModule4.Exercise;
+package com.kodilla;
 
 /**
  * Check class AppRecord to Java Record!
  * Looking for in kodilla-course
  */
 
-class BookRecord {
+class Book {
 
         private String author;
         private String title;
         private int year;
 
-        public BookRecord(String author, String title, int year) {
+        public Book(String author, String title, int year) {
             this.author = author;
             this.title = title;
             this.year = year;
@@ -22,7 +22,7 @@ class BookRecord {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
 
-            BookRecord book = (BookRecord) o;
+            Book book = (Book) o;
 
             if (year != book.year) return false;
             if (author != null ? !author.equals(book.author) : book.author != null) return false;
@@ -61,8 +61,16 @@ class BookRecord {
 
 public class AppRecord {
     public static void main(String[] args) {
-        BookRecord book = new BookRecord("John Novak", "Algorithms and other nightmares", 2018);
+
+        /* //chang to record app!
+        Book book = new Book("John Novak", "Algorithms and other nightmares", 2018);
         int year = book.getYear();
+        System.out.println(book);
+        System.out.println(year);
+         */
+
+        BookRecord book = new BookRecord("John Novak", "Algorithms and other nightmares", 2018);
+        int year = book.year();//getter working!
         System.out.println(book);
         System.out.println(year);
     }
