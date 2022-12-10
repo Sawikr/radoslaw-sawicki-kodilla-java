@@ -37,3 +37,4 @@ out/
 .vscode/
 
 **/out/ **/build/
+**java_pid8360.hprof
