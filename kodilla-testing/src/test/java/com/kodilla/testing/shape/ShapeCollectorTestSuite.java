@@ -106,7 +106,8 @@ public class ShapeCollectorTestSuite {
             shapeCollector.showFigures();
 
             //Then
-            Assertions.assertTrue(shapeCollector.isCounter() == true);
+            Assertions.assertEquals(true, shapeCollector.isCounter());
+            //Assertions.assertTrue(shapeCollector.isCounter() == true);//other solution
 
         }
     }
