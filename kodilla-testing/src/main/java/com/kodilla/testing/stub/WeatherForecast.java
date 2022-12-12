@@ -46,7 +46,8 @@ public class WeatherForecast {
 
         for (Map.Entry<String, Double> temperatureTwo : temperatures.getTemperatures().entrySet()) {
             //resultMap.put(temperatureTwo.getKey(), temperatureTwo.getValue());//Mentor: no need!
-            addMedian = temperatures.getTemperatures().get(temperatureTwo.getKey());
+            //addMedian = temperatures.getTemperatures().get(temperatureTwo.getKey());//Mentor: temperatureTwo.getValue();
+            addMedian = temperatureTwo.getValue();
             resultMedian.add(addMedian);
         }
 
