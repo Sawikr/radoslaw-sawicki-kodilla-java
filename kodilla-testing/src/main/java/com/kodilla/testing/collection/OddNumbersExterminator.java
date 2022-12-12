@@ -7,9 +7,8 @@ public class OddNumbersExterminator {
 
     Boolean methodWorking = false;
 
-    List<Integer> numbersEven = new ArrayList<>();
-
     public List<Integer> exterminate(List<Integer> numbers) {
+        List<Integer> numbersEven = new ArrayList<>();//Mt: inside the method!
         for (int i = 0; i < numbers.size(); i++) {
             var item = numbers.get(i);
             if (item % 2 == 0) {

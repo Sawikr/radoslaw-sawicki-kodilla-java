@@ -1,6 +1,8 @@
 package com.kodilla.testing.collection;
 
 import org.junit.jupiter.api.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @DisplayName("CollectionTestSuite")
@@ -28,11 +30,24 @@ public class CollectionTestSuite {
                 + "end!\n");
     }
 
-    @DisplayName("Name of test: testOddNumbersExterminatorEmptyList")
 
+    @DisplayName("Name of test: testOddNumbersExterminatorEmptyList")
     @Test
     void testOddNumbersExterminatorEmptyList() {
         //Given
+        List<Integer> numbersEvenAndOdd = new ArrayList<>();
+        numbersEvenAndOdd.add(1);
+        numbersEvenAndOdd.add(6);
+        numbersEvenAndOdd.add(3);
+        numbersEvenAndOdd.add(9);
+        numbersEvenAndOdd.add(4);
+        numbersEvenAndOdd.add(8);
+
+        OddNumbersExterminator listEven = new OddNumbersExterminator();
+
+
+        //Mt: don't use random values and loops in your tests
+        /*
         RandomAddList listEvenAndOdd = new RandomAddList();
         listEvenAndOdd.getRandomGenerator();
 
@@ -49,27 +64,32 @@ public class CollectionTestSuite {
         for (int i = 0; i < listEven.numbersEven.size(); i++) {
             int numb = listEven.numbersEven.get(i);
             System.out.println("The number on the list is: " + numb);
-        }
+        }*/
 
         //When
-        listEven.exterminate(listEvenAndOdd.emptyList);
+        listEven.exterminate(numbersEvenAndOdd);
 
         //Then
-        Assertions.assertFalse(listEven.numbersEven.isEmpty());
+        Assertions.assertFalse(listEven.exterminate(numbersEvenAndOdd).isEmpty());
 
     }
 
     @DisplayName("Name of test: testOddNumbersExterminatorNormalList")
-
     @Test
     void testOddNumbersExterminatorNormalList() {
         //Given
-        RandomAddList listEvenAndOdd = new RandomAddList();
-        listEvenAndOdd.getRandomGenerator();
+        List<Integer> numbersEvenAndOdd = new ArrayList<>();
+        numbersEvenAndOdd.add(1);
+        numbersEvenAndOdd.add(6);
+        numbersEvenAndOdd.add(3);
+        numbersEvenAndOdd.add(9);
+        numbersEvenAndOdd.add(4);
+        numbersEvenAndOdd.add(8);
+
         OddNumbersExterminator listEven = new OddNumbersExterminator();
 
         //When
-        listEven.exterminate(listEvenAndOdd.numbersEvenAndOdd);
+        listEven.exterminate(numbersEvenAndOdd);
 
         //Then
         Assertions.assertEquals(true, listEven.methodWorking);
