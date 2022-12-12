@@ -74,7 +74,7 @@ public class ShapeCollectorTestSuite {
     @Nested
     @DisplayName("Name of test: getFigure and showFigures")
 
-    class GetShowFigure {
+    class GetFigure {
         @DisplayName("Name of test: getFigure")
         @Test
         void getFigure() {
@@ -86,12 +86,62 @@ public class ShapeCollectorTestSuite {
             shapeCollector.addFigure(new Triangle("Triangle", 10));
             shapeCollector.addFigure(new Triangle("TriangleNew", 20));
 
-            String getFigure = shapeCollector.getFigure(1);
+            Shape getFigure = shapeCollector.getFigure(1);
 
             //Then
-            Assertions.assertEquals("TriangleNew", getFigure);
+            Assertions.assertEquals(shapeCollector.shapes.get(1), getFigure);
 
         }
+
+        @DisplayName("Name of test: getFigureIndexMinusZero")
+        @Test
+        void getFigureIndexMinusZero() {
+            //Given
+            Triangle triangle = new Triangle("Triangle", 5);
+
+            //When
+            ShapeCollector shapeCollector = new ShapeCollector();
+            shapeCollector.addFigure(new Triangle("Triangle", 10));
+            shapeCollector.addFigure(new Triangle("TriangleNew", 20));
+
+            Shape getFigure = null;
+            try{
+                getFigure = shapeCollector.getFigure(-1);
+            }catch (IndexOutOfBoundsException e) {
+                System.out.println("Exception thrown  :" + e);
+            }
+            Exception ex = new Exception();
+
+            //Then
+            Assertions.assertEquals(getFigure, ex.getMessage());
+
+        }
+
+        @DisplayName("Name of test: getFigureIndexAboveBound")
+        @Test
+        void getFigureIndexAboveBound() {
+            //Given
+            Triangle triangle = new Triangle("Triangle", 5);
+
+            //When
+            ShapeCollector shapeCollector = new ShapeCollector();
+            shapeCollector.addFigure(new Triangle("Triangle", 10));
+            shapeCollector.addFigure(new Triangle("TriangleNew", 20));
+
+            Shape getFigure = null;
+            try{
+                getFigure = shapeCollector.getFigure(3);
+            }catch (IndexOutOfBoundsException e) {
+                System.out.println("Exception thrown  :" + e);
+            }
+            Exception ex = new Exception();
+
+            //Then
+            Assertions.assertEquals(getFigure, ex.getMessage());
+
+        }
+
+    }
 
         @DisplayName("Name of test: showFigures")
         @Test
@@ -110,5 +160,4 @@ public class ShapeCollectorTestSuite {
             //Assertions.assertTrue(shapeCollector.isCounter() == true);//other solution
 
         }
-    }
 }
