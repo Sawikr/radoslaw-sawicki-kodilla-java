@@ -4,6 +4,12 @@ import org.junit.jupiter.api.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Important:
+ * Additional task: 6.3.7!!!:
+ * List<Integer> numbersEvenAndOdd = List.of(1, 6, 3, 9, 4, 8);
+ */
+
 
 @DisplayName("CollectionTestSuite")
 public class CollectionTestSuite {
@@ -36,7 +42,6 @@ public class CollectionTestSuite {
     void testOddNumbersExterminatorEmptyList() {
         //Given
         List<Integer> numbersEvenAndOdd = new ArrayList<>();
-        //List<Integer> numbersEvenAndOdd = List.of(1, 6, 3);
         numbersEvenAndOdd.add(1);
         numbersEvenAndOdd.add(6);
         numbersEvenAndOdd.add(3);
@@ -46,6 +51,11 @@ public class CollectionTestSuite {
 
         OddNumbersExterminator listEven = new OddNumbersExterminator();
 
+        //------------------------------------------------------------
+        //Additional task: 6.3.7!!!
+        //List<Integer> numbersEvenAndOdd = List.of(1, 6, 3, 9, 4, 8);
+        // It's working!
+        //------------------------------------------------------------
 
         //Mt: don't use random values and loops in your tests
         /*
