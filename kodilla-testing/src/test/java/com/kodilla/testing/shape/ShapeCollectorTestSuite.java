@@ -104,16 +104,10 @@ public class ShapeCollectorTestSuite {
             shapeCollector.addFigure(new Triangle("Triangle", 10));
             shapeCollector.addFigure(new Triangle("TriangleNew", 20));
 
-            Shape getFigure = null;
-            try{
-                getFigure = shapeCollector.getFigure(-1);
-            }catch (IndexOutOfBoundsException e) {
-                System.out.println("Exception thrown  :" + e);
-            }
-            Exception ex = new Exception();
+            Shape getFigure = shapeCollector.getFigure(-1);
 
             //Then
-            Assertions.assertEquals(getFigure, ex.getMessage());
+            Assertions.assertEquals(null, getFigure);
 
         }
 
@@ -128,6 +122,10 @@ public class ShapeCollectorTestSuite {
             shapeCollector.addFigure(new Triangle("Triangle", 10));
             shapeCollector.addFigure(new Triangle("TriangleNew", 20));
 
+            Shape getFigure = shapeCollector.getFigure(3);
+
+            //We not use exception in tests!
+            /*
             Shape getFigure = null;
             try{
                 getFigure = shapeCollector.getFigure(3);
@@ -135,9 +133,10 @@ public class ShapeCollectorTestSuite {
                 System.out.println("Exception thrown  :" + e);
             }
             Exception ex = new Exception();
+            */
 
             //Then
-            Assertions.assertEquals(getFigure, ex.getMessage());
+            Assertions.assertEquals(null, getFigure);
 
         }
 

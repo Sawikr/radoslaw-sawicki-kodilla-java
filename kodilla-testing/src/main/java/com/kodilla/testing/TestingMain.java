@@ -3,6 +3,7 @@ package com.kodilla.testing;
 
 public class TestingMain {
 
+    public static void main (String[] args) {
 
         //don't need the following: we test in a different way!
         /*
@@ -29,4 +30,5 @@ public class TestingMain {
             System.out.println("Error!");
         }
          */
+    }
 }

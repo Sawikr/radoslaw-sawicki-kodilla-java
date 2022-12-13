@@ -25,8 +25,12 @@ public class ShapeCollector {
         shapes.remove(shape);
     }
 
+    //Mt:
     public Shape getFigure(int n){
-        return shapes.get(n);
+        if(n < 0 || n > shapes.size()){
+            return null;
+        }else
+            return shapes.get(n);
     }
 
     public void showFigures() {

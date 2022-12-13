@@ -36,6 +36,7 @@ public class CollectionTestSuite {
     void testOddNumbersExterminatorEmptyList() {
         //Given
         List<Integer> numbersEvenAndOdd = new ArrayList<>();
+        //List<Integer> numbersEvenAndOdd = List.of(1, 6, 3);
         numbersEvenAndOdd.add(1);
         numbersEvenAndOdd.add(6);
         numbersEvenAndOdd.add(3);
