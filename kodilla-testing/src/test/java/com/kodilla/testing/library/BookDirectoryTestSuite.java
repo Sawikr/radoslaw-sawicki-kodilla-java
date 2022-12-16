@@ -127,7 +127,10 @@ public class BookDirectoryTestSuite {
             //Given
             BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
             List<Book> theListOf1Books = new ArrayList<>();
-
+            //Mt: added below:
+            Book theBook1 = new Book("Title1", "Author1", 1971);
+            theListOf1Books.add(theBook1);
+            //Mt
             LibraryUser user1 = new LibraryUser("Radek", "Sawicki", "12345", 0);
             LibraryUser user2 = new LibraryUser("Agnieszka", "Sawicka", "12346", 1);
             LibraryUser user3 = new LibraryUser("Kasjan", "Sawicki", "12347", 5);
@@ -148,6 +151,18 @@ public class BookDirectoryTestSuite {
             //Given
             BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
             List<Book> theListOf5Books = new ArrayList<>();
+            //Mt: added below:
+            Book theBook1 = new Book("Title1", "Author1", 1971);
+            Book theBook2 = new Book("Title2", "Author2", 1971);
+            Book theBook3 = new Book("Title3", "Author3", 1971);
+            Book theBook4 = new Book("Title4", "Author4", 1971);
+            Book theBook5 = new Book("Title5", "Author5", 1971);
+            theListOf5Books.add(theBook1);
+            theListOf5Books.add(theBook2);
+            theListOf5Books.add(theBook3);
+            theListOf5Books.add(theBook4);
+            theListOf5Books.add(theBook5);
+            //Mt
 
             LibraryUser user1 = new LibraryUser("Radek", "Sawicki", "12345", 0);
             LibraryUser user2 = new LibraryUser("Agnieszka", "Sawicka", "12346", 1);
