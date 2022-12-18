@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @ExtendWith(MockitoExtension.class)
-public class TestCalculateAdvStatistics {
+public class TestCalculateAdvStatistics{
 
     private static int testCounter = 0;
 
@@ -45,7 +45,7 @@ public class TestCalculateAdvStatistics {
     private List<String> generateListOfNUsers(int users) {
         List<String> resultList = new ArrayList<>();
         for (int n = 1; n <= users; n++) {
-            Statistics theUser = new CalculateAdvStatistics(1 + n, 0 + n, 100 + n);;
+            CalculateAdvStatistics theUser = new CalculateAdvStatistics(resultList, 0 + n, 0 + n, 100 + n);;
             resultList.add(String.valueOf(theUser));
         }
         return resultList;
@@ -60,13 +60,13 @@ public class TestCalculateAdvStatistics {
         //Given
         CalculateAdvStatistics calculate = new CalculateAdvStatistics(statisticsMock);
         List<String> usersNames = new ArrayList<>();
-        Statistics testCount = new CalculateAdvStatistics(usersNames,1, 0, 100);
+        CalculateAdvStatistics testCount = new CalculateAdvStatistics(usersNames,1, 0, 100);
 
         //When
-        calculate.calculateAdvStatistics(testCount);
+        calculate.calculateAdvStatistics(statisticsMock);
 
         //Then
-        assertEquals(0, calculate.postsCount());
+        assertEquals(0, testCount.postsCount());
         calculate.showStatistics();
     }
 
@@ -75,13 +75,13 @@ public class TestCalculateAdvStatistics {
         //Given
         CalculateAdvStatistics calculate = new CalculateAdvStatistics(statisticsMock);
         List<String> usersNames = new ArrayList<>();
-        Statistics testCount = new CalculateAdvStatistics(usersNames,  1, 1000, 100);
+        CalculateAdvStatistics testCount = new CalculateAdvStatistics(usersNames,  1, 1000, 100);
 
         //When
-        calculate.calculateAdvStatistics(testCount);
+        calculate.calculateAdvStatistics(statisticsMock);
 
         //Then
-        assertEquals(1000, calculate.postsCount());
+        assertEquals(1000, testCount.postsCount());
         calculate.showStatistics();
     }
 
@@ -90,13 +90,13 @@ public class TestCalculateAdvStatistics {
         //Given
         CalculateAdvStatistics calculate = new CalculateAdvStatistics(statisticsMock);
         List<String> usersNames = new ArrayList<>();
-        Statistics testCount = new CalculateAdvStatistics(usersNames, 1, 1000, 0);
+        CalculateAdvStatistics testCount = new CalculateAdvStatistics(usersNames, 1, 1000, 0);
 
         //When
-        calculate.calculateAdvStatistics(testCount);
+        calculate.calculateAdvStatistics(statisticsMock);
 
         //Then
-        assertEquals(0, calculate.commentsCount());
+        assertEquals(0, testCount.commentsCount());
         calculate.showStatistics();
     }
 
@@ -105,7 +105,7 @@ public class TestCalculateAdvStatistics {
         //Given
         CalculateAdvStatistics calculate = new CalculateAdvStatistics(statisticsMock);
         List<String> usersNames = new ArrayList<>();
-        Statistics testCount = new CalculateAdvStatistics(usersNames, 1, 10, 9);
+        CalculateAdvStatistics testCount = new CalculateAdvStatistics(usersNames, 1, 10, 9);
         int post = testCount.postsCount();
         int comment = testCount.commentsCount();
         int result = 0;
@@ -114,7 +114,7 @@ public class TestCalculateAdvStatistics {
         }
 
         //When
-        calculate.calculateAdvStatistics(testCount);
+        calculate.calculateAdvStatistics(statisticsMock);
 
         //Then
         Assertions.assertEquals(1, result);
@@ -126,7 +126,7 @@ public class TestCalculateAdvStatistics {
         //Given
         CalculateAdvStatistics calculate = new CalculateAdvStatistics(statisticsMock);
         List<String> usersNames = new ArrayList<>();
-        Statistics testCount = new CalculateAdvStatistics(usersNames,1, 10, 11);
+        CalculateAdvStatistics testCount = new CalculateAdvStatistics(usersNames,1, 10, 11);
         int post = testCount.postsCount();
         int comment = testCount.commentsCount();
         int result = 0;
@@ -135,7 +135,7 @@ public class TestCalculateAdvStatistics {
         }
 
         //When
-        calculate.calculateAdvStatistics(testCount);
+        calculate.calculateAdvStatistics(statisticsMock);
 
         //Then
         Assertions.assertEquals(1, result);
@@ -148,15 +148,14 @@ public class TestCalculateAdvStatistics {
         CalculateAdvStatistics calculate = new CalculateAdvStatistics(statisticsMock);
 
         List<String> listOfUsers = new ArrayList<>();
-        Statistics user1 = new CalculateAdvStatistics(1, 1000, 0);
-        Statistics user2 = new CalculateAdvStatistics(2, 1000, 0);
+        CalculateAdvStatistics user1 = new CalculateAdvStatistics(listOfUsers,1, 1000, 0);
+        CalculateAdvStatistics user2 = new CalculateAdvStatistics(listOfUsers, 2, 1000, 0);
         listOfUsers.add(String.valueOf(user1));
         listOfUsers.add(String.valueOf(user2));
-        Statistics list = new CalculateAdvStatistics(listOfUsers);
 
         //When
         int usersCount = listOfUsers.size();
-        calculate.calculateAdvStatistics(list);
+        calculate.calculateAdvStatistics(statisticsMock);
 
         //Then
         assertEquals(2, usersCount);
@@ -168,11 +167,10 @@ public class TestCalculateAdvStatistics {
         //Given
         CalculateAdvStatistics calculate = new CalculateAdvStatistics(statisticsMock);
         List<String> resultListOf100Users = generateListOfNUsers(100);
-        Statistics list = new CalculateAdvStatistics(resultListOf100Users);
 
         //When
         int usersCount = resultListOf100Users.size();
-        calculate.calculateAdvStatistics(list);
+        calculate.calculateAdvStatistics(statisticsMock);
 
         //Then
         assertEquals(100, usersCount);
