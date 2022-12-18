@@ -13,17 +13,22 @@ public class CalculateAdvStatistics{
     private int averageCommentsCountPerUser;
     private int averageCommentsCountPerPost;
 
-    private Statistics statistics;
+    //Mt: variable statistics not need!
+    //private Statistics statistics;
 
-    public CalculateAdvStatistics(Statistics statistics) {
-        this.statistics = statistics;
-    }
+    //public CalculateAdvStatistics(Statistics statistics) {
+        //this.statistics = statistics;
+    //}
 
     public CalculateAdvStatistics(List<String> usersNames, int usersCount, int postsCount, int commentsCount) {
         this.usersNames = usersNames;
         this.usersCount = usersCount;
         this.postsCount = postsCount;
         this.commentsCount = commentsCount;
+    }
+
+    //Constructor is need!
+    public CalculateAdvStatistics(Statistics statisticsMock) {
     }
 
     public int postsCount() {
