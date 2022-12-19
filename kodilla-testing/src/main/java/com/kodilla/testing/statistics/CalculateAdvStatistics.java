@@ -2,7 +2,7 @@ package com.kodilla.testing.statistics;
 
 import java.util.List;
 
-//Mt: not implement//
+//Mt: not implement
 public class CalculateAdvStatistics{
 
     List<String> usersNames;
@@ -28,7 +28,20 @@ public class CalculateAdvStatistics{
     }
 
     //Constructor is need!
-    public CalculateAdvStatistics(Statistics statisticsMock) {
+    //Mt: delete method argument 'statistics': example: public CalculateAdvStatistics(Statistics statisticsMock)
+    public CalculateAdvStatistics() {
+    }
+
+    public int getAveragePostsCountPerUser() {
+        return averagePostsCountPerUser;
+    }
+
+    public int getAverageCommentsCountPerUser() {
+        return averageCommentsCountPerUser;
+    }
+
+    public int getAverageCommentsCountPerPost() {
+        return averageCommentsCountPerPost;
     }
 
     public int postsCount() {
@@ -43,13 +56,16 @@ public class CalculateAdvStatistics{
         postsCount = statistics.postsCount();
         commentsCount = statistics.commentsCount();
         usersNames = statistics.usersNames();
-        averageCommentsCountPerPost = 10;
-        averageCommentsCountPerUser = 11;
-        averagePostsCountPerUser = 12;
+        //Mt: correction
+        if (postsCount != 0  || commentsCount != 0) {
+            averageCommentsCountPerPost = commentsCount / postsCount;
+            averageCommentsCountPerUser = commentsCount / usersNames.size();
+            averagePostsCountPerUser = postsCount / usersNames.size();
+        }
     }
 
     void showStatistics(){
-        System.out.println("UsersCount: " + usersCount);
+        System.out.println("UsersCount: " + usersNames.size());
         System.out.println("PostsCount: " + postsCount);
         System.out.println("CommentsCount: " + commentsCount);
         System.out.println("AveragePostsCountPerUser: " + averagePostsCountPerUser);
