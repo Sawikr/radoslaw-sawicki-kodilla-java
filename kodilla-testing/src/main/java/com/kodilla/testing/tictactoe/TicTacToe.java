@@ -2,6 +2,7 @@ package com.kodilla.testing.tictactoe;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 /**
  * Game Tic Tac Toe. Enjoy!
@@ -11,6 +12,8 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
+    private static final Logger LOGGER = Logger.getLogger(TicTacToe.class.getName());
+
     public static void main(String[] args){
 
         System.out.println("\nEnter the size of the game board [3-10]: ");
@@ -19,6 +22,8 @@ public class TicTacToe {
             System.out.println("Choice invalid, please try again!" +
                     "\nEnter the size of the game board [3-10]: ");
             dim = new Scanner(System.in).nextInt();
+            LOGGER.info("Logger Name: "+ LOGGER.getName());
+            LOGGER.warning("Dim is invalid: " + dim);
         }
         char[][] board = new char[dim][dim];
 
@@ -38,7 +43,7 @@ public class TicTacToe {
             System.out.println("\nPlayer '" + activePlayer + "' look at the board:");
             printBoard(board);//Prints a board
 
-            boolean moveWasCorrect = performPlayerMove(board, activePlayer);
+            boolean moveWasCorrect = performMove(board, activePlayer);
             if(moveWasCorrect){
                 //Counter movies
                 movesCounter++;
@@ -72,6 +77,7 @@ public class TicTacToe {
     private static boolean checkOneDiagonal(char[][] board, char activePlayer){
         //Retrieving the length of the board
         int dim = board.length;
+        //Checking diagonal
         for(int i = 0; i < dim; i++){
             if(board[i][i] != activePlayer){
                 return false;
@@ -82,6 +88,7 @@ public class TicTacToe {
 
     private static boolean checkTwoDiagonal(char[][] board, char activePlayer){
         int dim = board.length;
+        //Checking diagonal
         for(int i = 0; i < dim; i++){
             if(board[i][dim - i - 1] != activePlayer){
                 return false;
@@ -98,7 +105,7 @@ public class TicTacToe {
             boolean win = true;
             //Checking columns
             for(int col = 0; col < dim; col++){
-                //No activePlayer when win = false
+                //No activePlayer when win equals false
                 if (board[row][col] != activePlayer){
                     win = false;
                     //Leaving loop!
@@ -141,7 +148,7 @@ public class TicTacToe {
                 checkWinInColumns(board, activePlayer) || checkWinInRows(board, activePlayer);
     }
 
-    private static boolean performPlayerMove(char[][] board, char activePlayer){
+    private static boolean performMove(char[][] board, char activePlayer){
         int dim = board.length;
         System.out.println("\nPlayer '" + activePlayer + "', enter a row number: ");
         int row = new Scanner(System.in).nextInt();
