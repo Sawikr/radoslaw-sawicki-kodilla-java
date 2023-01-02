@@ -9,6 +9,10 @@ import java.util.logging.Logger;
 import java.util.stream.IntStream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * 7.5 Task: we calculate the average functionally
+ */
+
 public class ArrayOperationsTestSuite implements ArrayOperations{
 
     private static final Logger LOGGER = Logger.getLogger(ArrayOperationsTestSuite.class.getName());
