@@ -9,19 +9,13 @@ public class FindFlight {
 
     static Boolean result = null;
 
-    public static void main(String[] args){
-
+    public static void main(String[] args) throws RouteNotFoundException {
+        //Return null!
         try {
-            try {
-                //Return null!
-                result = findFlight(new Flight("London", "Toronto"));
-                System.out.println("Variable flightFound is: " + result + "!");
-            } catch (NullPointerException e) {
-                System.out.println("We caught an exception NullPointerException: " + Arrays.toString(e.getStackTrace()));
-                throw new RouteNotFoundException("My RouteNotFoundException!");
-            }
-        } catch (RouteNotFoundException e) {
-            System.out.println("We caught an exception: " + e.getMessage());
+            result = findFlight(new Flight("London", "Toronto"));
+            System.out.println("Variable flightFound is: " + result + "!");
+        } catch (NullPointerException e) {
+            System.out.println("We caught an exception: " + Arrays.toString(e.getStackTrace()));
         } finally {
             System.out.println("Method findFlight() is finished at " + LocalTime.now());
         }
@@ -39,6 +33,18 @@ public class FindFlight {
                 result = true;
                 break;
             }
+        }
+        try {
+            try {
+                return result;
+            } catch (NullPointerException e) {
+                System.out.println("We caught an exception: " + Arrays.toString(e.getStackTrace()));
+                throw new RouteNotFoundException("We caught an exception: " + e.getMessage());
+            }
+        } catch (RouteNotFoundException e) {
+            System.out.println("We caught an exception: " + e.getMessage());
+        } finally {
+            System.out.println("Method findFlight() is finished at " + LocalTime.now());
         }
         return result;
     }
