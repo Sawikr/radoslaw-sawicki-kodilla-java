@@ -1,7 +1,5 @@
 package com.kodilla.exception.additional;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Exponentiation {
