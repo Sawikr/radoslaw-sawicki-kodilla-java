@@ -4,24 +4,33 @@ import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+import java.util.logging.Logger;
+
+/**
+ * @version 0.0.1
+ */
 
 public class FindFlight {
 
-    static Boolean result = null;
+    public static final Logger logger = Logger.getLogger((FindFlight.class.getName()));
+    static Boolean result = false;//Not use null!
 
-    public static void main(String[] args) throws RouteNotFoundException {
-        //Return null!
+    public static void main(String[] args) {
+        //We check if method will be working!
         try {
-            result = findFlight(new Flight("London", "Toronto"));
+            findFlight(new Flight("London", "Toronto"));
+            logger.info("Method findFlight is working!");
             System.out.println("Variable flightFound is: " + result + "!");
-        } catch (NullPointerException e) {
-            System.out.println("We caught an exception: " + Arrays.toString(e.getStackTrace()));
+        } catch (RouteNotFoundException e) {
+            System.out.println("We caught an exception here: " + Arrays.toString(e.getStackTrace()));
+            System.out.println("Variable flightFound is: " + result + "!");
         } finally {
             System.out.println("Method findFlight() is finished at " + LocalTime.now());
         }
     }
 
-    public static boolean findFlight(Flight flight) throws RouteNotFoundException {
+    public static void findFlight(Flight flight) throws RouteNotFoundException {
         HashMap<String, Boolean> flightPossible = new HashMap<>();
         flightPossible.put("Poznan", true);
         flightPossible.put("Krakow", true);
@@ -29,23 +38,14 @@ public class FindFlight {
         flightPossible.put("Warsaw", true);
 
         for (Map.Entry<String, Boolean> entry : flightPossible.entrySet()) {
-            if (flight.getArrivalAirport().equals(entry.getKey())) {
+            if (Objects.equals(flight.getArrivalAirport(), entry.getKey())) {
                 result = true;
                 break;
             }
         }
-        try {
-            try {
-                return result;
-            } catch (NullPointerException e) {
-                System.out.println("We caught an exception: " + Arrays.toString(e.getStackTrace()));
-                throw new RouteNotFoundException("We caught an exception: " + e.getMessage());
-            }
-        } catch (RouteNotFoundException e) {
-            System.out.println("We caught an exception: " + e.getMessage());
-        } finally {
-            System.out.println("Method findFlight() is finished at " + LocalTime.now());
+        if (!result){
+            logger.info("Result is: " + result + "! We caught an exception!");
+            throw new RouteNotFoundException("We caught an exception here: RouteNotFoundException");
         }
-        return result;
     }
 }
