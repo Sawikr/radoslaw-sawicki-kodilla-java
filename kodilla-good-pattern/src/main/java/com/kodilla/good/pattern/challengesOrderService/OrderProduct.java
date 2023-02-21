@@ -1,26 +1,16 @@
 package com.kodilla.good.pattern.challengesOrderService;
 
+import java.util.List;
+
 public class OrderProduct {
 
-    private final String productOne;
-    private final String productTwo;
-    private final String productThree;
+    private final List<String> order;
 
-    public OrderProduct(String productOne, String productTwo, String productThree) {
-        this.productOne = productOne;
-        this.productTwo = productTwo;
-        this.productThree = productThree;
+    public OrderProduct(List<String> order) {
+        this.order = order;
+
     }
-
-    public String getProductOne() {
-        return productOne;
-    }
-
-    public String getProductTwo() {
-        return productTwo;
-    }
-
-    public String getProductThree() {
-        return productThree;
+    public List<String> getProducts() {
+        return order;
     }
 }

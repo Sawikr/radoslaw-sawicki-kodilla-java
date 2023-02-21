@@ -7,8 +7,10 @@ public class ApplicationOrder {
         ProductOrderService productOrderService = new ProductOrderService(new InformationServiceProcess(),
                 new OrderServiceProcess(), new OrderRepositoryProcess());
 
+        Order order = new Order();
+
         productOrderService.process(new OrderRequest(new User("Sawik", "Radoslaw Sawicki"),
                 OrderServiceProcess.getOrderFrom(), OrderServiceProcess.getOrderTo()),
-                new OrderProduct("Computer-AXD15G", "Keyboard-AX5", null));
+                new OrderProduct(order.order()));
     }
 }
