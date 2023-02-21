@@ -6,7 +6,6 @@ public class InformationServiceProcess implements InformationService{
     public void inform(User user, OrderProduct orderProduct) {
         System.out.println("\nDetails of the order: " +
                 "\nUser: " + user +
-                "\nProduct name: " + orderProduct.getProductOne() +
-                ", " + orderProduct.getProductTwo() + ", " + orderProduct.getProductThree());
+                "\nProduct name: " + orderProduct.getProducts());
     }
 }

@@ -8,8 +8,7 @@ public class OrderRepositoryProcess implements OrderRepository{
     public void createOrder(User user, OrderProduct orderProduct, LocalDateTime from, LocalDateTime to) {
         System.out.println("\nThe order has been saved in the database for execution:" +
                 "\nUser: " + user +
-                ", product: " + orderProduct.getProductOne() +
-                ", " + orderProduct.getProductTwo() + ", " + orderProduct.getProductThree() +
+                ", product: " + orderProduct.getProducts() +
                 ", from: " + from +
                 ", to: " + to);
     }
