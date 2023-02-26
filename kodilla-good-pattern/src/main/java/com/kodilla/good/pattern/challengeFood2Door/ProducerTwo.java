@@ -31,8 +31,6 @@ public class ProducerTwo extends Producer implements OrderProcess {
         System.out.println();
     }
 
-
-
     @Override
     public String toString() {
         return "ProducerTwo {" +
