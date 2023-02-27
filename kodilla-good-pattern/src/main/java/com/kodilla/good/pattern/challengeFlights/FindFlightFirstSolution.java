@@ -13,10 +13,11 @@ public class FindFlightFirstSolution {
         for (Map.Entry<Integer, Flight> entry : boardFlight().entrySet()) {
             if (getDepartureAirport(flight, entry))
                 break;
-            if (getTransferAirport(flight, entry))
+            else if (getTransferAirport(flight, entry))
                 break;
-            if (getArrivalAirport(flight, entry))
+            else if (getArrivalAirport(flight, entry))
                 break;
+
             if (!result) {
                 logger.info("Result is: " + result + "! We caught an exception!");
                 throw new RouteNotFoundException("We caught an exception here: RouteNotFoundException");
