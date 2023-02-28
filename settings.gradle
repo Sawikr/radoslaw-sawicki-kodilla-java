@@ -5,4 +5,4 @@ include 'kodilla-rps'
 include 'exception'
 include 'tictactoe'
 include 'kodilla-good-pattern'
-
+include 'kodilla-spring'
