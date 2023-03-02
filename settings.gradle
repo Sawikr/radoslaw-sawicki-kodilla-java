@@ -7,3 +7,5 @@ include 'tictactoe'
 include 'kodilla-good-pattern'
 include 'kodilla-spring'
 include 'kodilla-spring-web'
+include 'kodilla-patterns'
+
