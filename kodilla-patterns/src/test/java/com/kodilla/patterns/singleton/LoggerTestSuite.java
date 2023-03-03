@@ -1,7 +1,5 @@
-package com.kodilla.patterns;
+package com.kodilla.patterns.singleton;
 
-import com.kodilla.patterns.singleton.Logger;
-import com.kodilla.patterns.singleton.LoggerSingleton;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
