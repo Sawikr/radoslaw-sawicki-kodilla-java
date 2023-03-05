@@ -55,14 +55,21 @@ public class BigmacTestSuite {
     @Test
     void testBigmacTestSuiteIsCorrect() {
         //Given
-        Bigmac bigmac = new Bigmac.BigmacBuilder()
+        Bigmac bigmac = null;
+        try {
+            bigmac = getBigmac();
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());;
+        }
+
+        //When & then
+        assertNull(bigmac);
+    }
+
+    private Bigmac getBigmac() {
+        return new Bigmac.BigmacBuilder()
                 .getBun("MacBun")
                 .getIngredients("Bacon")
                 .build();
-
-        System.out.println(bigmac);
-
-        //When & then
-        assertNotNull(bigmac);
     }
 }

@@ -71,7 +71,11 @@ public class Bigmac {
         }
 
         public Bigmac build() {
-            return new Bigmac(bun, burgers, sauce, ingredients);
+            if (!(bun.isEmpty() || burgers == 0 || sauce.isEmpty() || ingredients.isEmpty())) {
+                return new Bigmac(bun, burgers, sauce, ingredients);
+            }
+            else
+                throw new RuntimeException("Bad composition! Bigmac was not prepared.");
         }
 
         @Override
