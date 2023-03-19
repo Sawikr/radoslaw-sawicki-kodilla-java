@@ -1,7 +1,9 @@
 package com.kodilla.hibernate.invoice;
 
+//import org.jetbrains.annotations.NotNull;
+//import javax.persistence.*;
 import jakarta.persistence.*;
-import org.jetbrains.annotations.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity

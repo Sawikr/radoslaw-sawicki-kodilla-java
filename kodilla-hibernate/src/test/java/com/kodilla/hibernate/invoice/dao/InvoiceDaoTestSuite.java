@@ -42,7 +42,7 @@ public class InvoiceDaoTestSuite {
         assertEquals(2, item2ID);
 
         //CleanUp
-        itemDao.deleteProductByIdIsGreaterThan(1);
+        //itemDao.deleteProductByIdIsGreaterThan(1);
         //itemDao.deleteById(item1ID);
         //itemDao.deleteById(item2ID);
     }
@@ -74,8 +74,8 @@ public class InvoiceDaoTestSuite {
         assertEquals(2, id2);
 
         //CleanUp
-        invoiceDao.deleteProductByIdIsGreaterThan(1);
-        itemDao.deleteProductByIdIsGreaterThan(1);
+        //invoiceDao.deleteProductByIdIsGreaterThan(1);
+        //itemDao.deleteProductByIdIsGreaterThan(1);
         //invoiceDao.deleteById(id1);
         //invoiceDao.deleteById(id2);
     }
