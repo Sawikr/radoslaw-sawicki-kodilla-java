@@ -35,6 +35,11 @@ public class Invoice {
         this.item = item;
     }
 
+    public Invoice(int id, String number) {
+        this.id = id;
+        this.number = number;
+    }
+
     public Invoice() {
     }
 

@@ -25,6 +25,15 @@ public class Item {
         this.value = value;
     }
 
+    public Item(int id, Product product, BigDecimal price, int quantity, BigDecimal value, Invoice invoice) {
+        this.id = id;
+        this.product = product;
+        this.price = price;
+        this.quantity = quantity;
+        this.value = value;
+        this.invoice = invoice;
+    }
+
     public Item() {
     }
 
