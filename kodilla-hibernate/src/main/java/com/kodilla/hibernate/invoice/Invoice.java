@@ -44,7 +44,14 @@ public class Invoice {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "seq_post"
+    )
+    @SequenceGenerator(
+            name = "seq_post",
+            allocationSize = 1
+    )
     @NotNull
     @Column(name = "ID", unique = true)
     public int getId() {

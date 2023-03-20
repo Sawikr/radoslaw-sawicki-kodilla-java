@@ -3,6 +3,7 @@ package com.kodilla.hibernate.invoice;
 //import javax.persistence.*;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import org.hibernate.annotations.GenericGenerator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,14 @@ public class Product {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "seq_post"
+    )
+    @SequenceGenerator(
+            name = "seq_post",
+            allocationSize = 1
+    )
     @NotNull
     @Column(name = "ID", unique = true)
     public int getId() {
