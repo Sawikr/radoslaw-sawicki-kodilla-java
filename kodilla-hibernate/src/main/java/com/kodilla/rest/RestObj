@@ -1,0 +1,24 @@
+
+    {
+		"carname":"Opel",
+		"carbrand":"Astra",
+		"seatdescription":[
+			"seatone":{
+				"material" : "Skin One",
+				"color" : "Red One"
+				},
+			"seattwo":{
+				"material":"Skin Two",
+				"color":"Red Two"
+				},
+			"seatthree":{
+				"material":"Skin Three",
+				"color":"Red Tree"
+				},
+			"seatfour":{
+				"material":"Skin Four",
+				"color":"Red Four"
+				}
+			],
+		"enginecapacity":"1600"
+	}
