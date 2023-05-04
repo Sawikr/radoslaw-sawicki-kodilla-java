@@ -18,6 +18,11 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+//must be to aspects
+springBoot {
+    mainClassName = 'com.kodilla.patterns2.KodillaPatterns2Application'
+}
+
 test {
     useJUnitPlatform()
 }
