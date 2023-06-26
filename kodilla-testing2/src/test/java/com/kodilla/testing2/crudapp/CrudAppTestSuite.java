@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import java.util.Random;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CrudAppTestSuite {
 
@@ -90,15 +91,17 @@ public class CrudAppTestSuite {
 
         Thread.sleep(4000);
 
-        driverTrello.findElements(By.xpath("//a[@class=\"board-tile\"]")).stream()
+        driverTrello.findElements(By.xpath("//a[@class=\"board-tile mod-light-background\"]")).stream()
                 .filter(aHref -> aHref.findElements(By.xpath(".//div[@title=\"Kodilla Application\"]")).size() > 0)
                 .forEach(WebElement::click);
 
         Thread.sleep(4000);
 
-        // Return false
+        // Return true!
         result = driverTrello.findElements(By.xpath("//span")).stream()
                 .anyMatch(theSpan -> theSpan.getText().equals(taskName));
+
+        Thread.sleep(4000);
 
         driverTrello.close();
         return result;
@@ -130,8 +133,7 @@ public class CrudAppTestSuite {
         driver.switchTo().alert().accept();
 
         // Then
-        //assertTrue(checkTaskExistsInTrello(taskName));
-        assertFalse(checkTaskExistsInTrello(taskName));
+        assertTrue(checkTaskExistsInTrello(taskName));
         deleteTestTask(taskName);
     }
 }
